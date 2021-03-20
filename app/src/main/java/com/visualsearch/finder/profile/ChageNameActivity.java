@@ -41,6 +41,8 @@ public class ChageNameActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        //sada3q2
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
