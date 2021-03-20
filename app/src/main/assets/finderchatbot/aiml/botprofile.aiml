@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	
+	<category>
+    <pattern>hi</pattern>
+    <template>how can i help you!. are you having issue with credit card or orders</template>
+ </category>
+ <category>
+    <pattern>Hello</pattern>
+    <template>how can i help you!. are you having issue with credit card or orders</template>
+ </category>
+<category>
+    <pattern>hi *</pattern>
+    <template>how can i help you!. are you having issue with credit card or orders</template>
+ </category>
+  <category>
+    <pattern>my credit card *</pattern>
+    <template>plz make sure. your online payments are active my your bank</template>
+</category>
+  
+  <category>
+    <pattern>yes they are active</pattern>
+    <template>are you sure? you have entered correct information.</template>
+  </category>
+  
+  <category>
+    <pattern>yes</pattern>
+    <template>let me file a ticket for you. thanks for reaching out . have a great day</template>
+  </category>
+  
+  <category>
+    <pattern>i want to cancel my order</pattern>
+    <template>sir/mam plz tell us about your order id </template>
+  </category>
+  
+    <category>
+    <pattern>order id *</pattern>
+    <template>your request has been forwarded. thanks for reaching out.</template>
+  </category>
+  
+  <category>
+    <pattern>my order is late</pattern>
+    <template>sorry for inconvince, plz tell us you order id</template>
+  </category>
+   <category>
+    <pattern>order id *</pattern>
+    <template>your request has been forwarded,thanks for reaching out</template>
+  </category>
+  <category>
+    <pattern>my order has not arrived yet</pattern>
+    <template>sorry for inconvince, plz tell us you order id</template>
+  </category>
+<category>
+    <pattern>my order is not arrived yet</pattern>
+    <template>sorry for inconvince, plz tell us you order id</template>
+  </category>
+</aiml>
