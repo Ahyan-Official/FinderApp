@@ -52,6 +52,7 @@ public class AddressActivity extends AppCompatActivity
                 finish();
             }
         });
+
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

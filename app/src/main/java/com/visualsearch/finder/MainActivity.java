@@ -2,11 +2,13 @@ package com.visualsearch.finder;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences mSharedPreferences = getSharedPreferences("PREF_COLOR", MODE_PRIVATE);
+        int themeSelected = mSharedPreferences.getInt("THEME_SELECTED", R.style.AppTheme);
+       setTheme(themeSelected);
+
         setContentView(R.layout.activity_main);
 
         auth = FirebaseAuth.getInstance();
@@ -58,7 +65,29 @@ public class MainActivity extends AppCompatActivity {
         signInDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         floatingActionButton = findViewById(R.id.floatingbtn);
+        floatingActionButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.blue)));
 
+        if(themeSelected==R.style.AppTheme){
+
+            floatingActionButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.blue)));
+
+        }else if(themeSelected==R.style.AppThemeBlue){
+
+            floatingActionButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.themeBlue)));
+
+        }else if(themeSelected==R.style.AppThemeGreen){
+
+            floatingActionButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.themeGreen)));
+
+        }else if(themeSelected==R.style.AppThemeIndigo){
+
+            floatingActionButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.themeIndigo)));
+
+        }else if(themeSelected==R.style.AppThemeRed){
+
+            floatingActionButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.themeRed)));
+
+        }
         Button signInDialogBtn = signInDialog.findViewById(R.id.sign_in_btn);
         Button signUpDialogBtn = signInDialog.findViewById(R.id.sign_up_btn);
 

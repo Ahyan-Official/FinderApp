@@ -1,6 +1,6 @@
 package com.visualsearch.finder.Model;
 
-public class Products
+public class ProductsRecommend
 {
     private String productId;
     private String productImage;
@@ -13,12 +13,13 @@ public class Products
     private String categoryId;
     private String categoryName;
     private String discounted;
+    private String colors;
     private float rating;
 
-    public Products() {
+    public ProductsRecommend() {
     }
 
-    public Products(String productId, String productImage, String productName, String productSearch, String productDescription, String productPrice, String productDiscount, String productPercent, String categoryId, String categoryName, String discounted, float rating) {
+    public ProductsRecommend(String productId, String productImage, String productName, String productSearch, String productDescription, String productPrice, String productDiscount, String productPercent, String categoryId, String categoryName, String discounted, String colors, float rating) {
         this.productId = productId;
         this.productImage = productImage;
         this.productName = productName;
@@ -30,6 +31,7 @@ public class Products
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.discounted = discounted;
+        this.colors = colors;
         this.rating = rating;
     }
 
@@ -119,6 +121,14 @@ public class Products
 
     public void setDiscounted(String discounted) {
         this.discounted = discounted;
+    }
+
+    public String getColors() {
+        return colors;
+    }
+
+    public void setColors(String colors) {
+        this.colors = colors;
     }
 
     public float getRating() {

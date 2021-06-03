@@ -38,25 +38,25 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         holder.title.setText(notificationList.get(position).getTitle());
         holder.description.setText(notificationList.get(position).getText());
         holder.date.setText(notificationList.get(position).getDate());
-        if (notificationList.get(position).getType()==1)
-        {
-            holder.image.setVisibility(View.VISIBLE);
-            holder.imageOffer.setVisibility(View.INVISIBLE);
-            holder.imageTransaction.setVisibility(View.INVISIBLE);
-            Glide.with(context).load(notificationList.get(position).getImage()).into(holder.image);
-        }
-        else if (notificationList.get(position).getType()==2)
-        {
-            holder.image.setVisibility(View.INVISIBLE);
-            holder.imageOffer.setVisibility(View.VISIBLE);
-            holder.imageTransaction.setVisibility(View.INVISIBLE);
-        }
-        else if (notificationList.get(position).getType()==3)
-        {
-            holder.image.setVisibility(View.INVISIBLE);
-            holder.imageOffer.setVisibility(View.INVISIBLE);
-            holder.imageTransaction.setVisibility(View.VISIBLE);
-        }
+//        if (notificationList.get(position).getType()==1)
+//        {
+//            holder.image.setVisibility(View.VISIBLE);
+//            holder.imageOffer.setVisibility(View.INVISIBLE);
+//            holder.imageTransaction.setVisibility(View.INVISIBLE);
+//            Glide.with(context).load(notificationList.get(position).getImage()).into(holder.image);
+//        }
+//        else if (notificationList.get(position).getType()==2)
+//        {
+//            holder.image.setVisibility(View.INVISIBLE);
+//            holder.imageOffer.setVisibility(View.VISIBLE);
+//            holder.imageTransaction.setVisibility(View.INVISIBLE);
+//        }
+//        else if (notificationList.get(position).getType()==3)
+//        {
+//            holder.image.setVisibility(View.INVISIBLE);
+//            holder.imageOffer.setVisibility(View.INVISIBLE);
+//            holder.imageTransaction.setVisibility(View.VISIBLE);
+//        }
     }
 
     @Override

@@ -90,7 +90,7 @@ public class SearchActivity extends AppCompatActivity
                 for (DataSnapshot snapshot : dataSnapshot.getChildren())
                 {
                     Products product = snapshot.getValue(Products.class);
-                    productsList.add(product);
+                    productsList.add(product);//improve search
                 }
                 productsAdapter.notifyDataSetChanged();
                 resultCount.setText(productsAdapter.getItemCount()+" Results");

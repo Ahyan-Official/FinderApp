@@ -12,8 +12,8 @@ import android.os.Build;
 
 public class OreoNotification extends ContextWrapper {
 
-    private static final String CHANNEL_ID = "com.capi.ccecommerceapp";
-    private static final String CHANNEL_NAME = "ccecommerceapp";
+    private static final String CHANNEL_ID = "com.visualsearch.finder";
+    private static final String CHANNEL_NAME = "FinderApp";
 
     private NotificationManager notificationManager;
 

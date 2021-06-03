@@ -10,28 +10,45 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-import com.visualsearch.finder.Model.Products;
-import com.visualsearch.finder.Model.Review;
-import com.visualsearch.finder.products.ProductDetailsActivity;
-import com.visualsearch.finder.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.visualsearch.finder.Model.Products;
+import com.visualsearch.finder.Model.ProductsRecommend;
+import com.visualsearch.finder.Model.Review;
+import com.visualsearch.finder.R;
+import com.visualsearch.finder.products.ProductDetailsActivity;
 
 import java.util.List;
 
-public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHolder>
-{
-    private Context context;
-    private List<Products> productsList;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-    public ProductsAdapter(Context context, List<Products> productsList) {
+public class ProductRecommendAdapter extends RecyclerView.Adapter<ProductRecommendAdapter.ViewHolder> {
+    private Context context;
+    private List<ProductsRecommend> productsList;
+    boolean redd,bluee,greenn,yelloww,indigoo,pinkk,whitee;
+    boolean tshirtt,shirtt,poloshirtt;
+
+    public ProductRecommendAdapter(Context context, List<ProductsRecommend> productsList, boolean redd, boolean whitee, boolean indigoo, boolean bluee, boolean greenn, boolean pinkk, boolean shirtt, boolean tshirtt, boolean poloshirtt) {
+        this.context = context;
+        this.productsList = productsList;
+        this.redd = redd;
+        this.bluee = bluee;
+        this.greenn = greenn;
+        this.yelloww = yelloww;
+        this.indigoo = indigoo;
+        this.pinkk = pinkk;
+        this.whitee = whitee;
+        this.tshirtt = tshirtt;
+        this.shirtt = shirtt;
+        this.poloshirtt = poloshirtt;
+    }
+
+    public ProductRecommendAdapter(Context context, List<ProductsRecommend> productsList) {
         this.context = context;
         this.productsList = productsList;
     }
@@ -45,12 +62,20 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+//        if(redd && productsList.get(position).getColors().equals("red")){
+//
+//            holder.itemView.setVisibility(View.VISIBLE);
+//
+//
+//        }else {
+//            holder.itemView.setVisibility(View.GONE);
+//
+//        }
         holder.productName.setText(productsList.get(position).getProductName());
         Glide.with(context).load(productsList.get(position).getProductImage()).into(holder.productImage);
         holder.productBeforeDicountPrice.setText(productsList.get(position).getProductDiscount());
-        holder.productDiscountRatio.setText(productsList.get(position).getProductPercent()+"% Off");
-        holder.productPrice.setText(productsList.get(position).getProductPrice()+".00");
-
+        holder.productDiscountRatio.setText(productsList.get(position).getProductPercent() + "% Off");
+        holder.productPrice.setText(productsList.get(position).getProductPrice() + ".00");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,25 +92,26 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
             }
         });
 
-        if (productsList.get(position).getDiscounted().equals("true")){
-            holder.currency_discounted.setVisibility(View.VISIBLE);
-            holder.discountDivider.setVisibility(View.VISIBLE);
-            holder.productBeforeDicountPrice.setVisibility(View.VISIBLE);
-            holder.productDiscountRatio.setVisibility(View.VISIBLE);
-        }
-        else {
-            holder.currency_discounted.setVisibility(View.INVISIBLE);
-            holder.discountDivider.setVisibility(View.INVISIBLE);
-            holder.productBeforeDicountPrice.setVisibility(View.INVISIBLE);
-            holder.productDiscountRatio.setVisibility(View.INVISIBLE);
-        }
+
+
+//        if (productsList.get(position).getDiscounted().equals("true")) {
+//            holder.currency_discounted.setVisibility(View.VISIBLE);
+//            holder.discountDivider.setVisibility(View.VISIBLE);
+//            holder.productBeforeDicountPrice.setVisibility(View.VISIBLE);
+//            holder.productDiscountRatio.setVisibility(View.VISIBLE);
+//        } else {
+//            holder.currency_discounted.setVisibility(View.INVISIBLE);
+//            holder.discountDivider.setVisibility(View.INVISIBLE);
+//            holder.productBeforeDicountPrice.setVisibility(View.INVISIBLE);
+//            holder.productDiscountRatio.setVisibility(View.INVISIBLE);
+//        }
 
         getRating(holder.ratingBar, productsList.get(position).getProductId());
     }
 
     @Override
     public int getItemCount() {
-         return productsList.size();
+        return productsList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -115,29 +141,25 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         }
     }
 
-    private void getRating(final RatingBar ratingBar , String product_id)
-    {
+    private void getRating(final RatingBar ratingBar, String product_id) {
         DatabaseReference ratingRef = FirebaseDatabase.getInstance().getReference("Ratings")
                 .child(product_id);
 
         ratingRef.addValueEventListener(new ValueEventListener() {
-            int count=0;
-            int sum=0;
+            int count = 0;
+            int sum = 0;
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    if (snapshot.exists())
-                    {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    if (snapshot.exists()) {
                         ratingBar.setVisibility(View.VISIBLE);
                         Review review = dataSnapshot.getValue(Review.class);
                         sum += review.getRating();
                         count++;
                         int average = sum / count;
                         ratingBar.setRating(average);
-                    }
-                    else
-                    {
+                    } else {
                         ratingBar.setVisibility(View.INVISIBLE);
                     }
                 }

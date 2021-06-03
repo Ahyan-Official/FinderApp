@@ -96,6 +96,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     Wishlist wishlist;
 
+    float rating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +110,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         product_sale = intent.getStringExtra("productSale");
         product_image = intent.getStringExtra("productImage");
         category_id = intent.getStringExtra("categoryId");
+        rating = intent.getFloatExtra("rating",5.0f);
 
         productImage = findViewById(R.id.product_image);
         productName = findViewById(R.id.product_name);
@@ -243,6 +245,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         product_title.setText(product_name);
         productPrice.setText(product_price);
         productDesc.setText(product_desc);
+        productRating.setRating(rating);
         Glide.with(getApplicationContext()).load(product_image).into(productImage);
 
         RecyclerView.LayoutManager alsoLayoutManager = new LinearLayoutManager(ProductDetailsActivity.this, LinearLayoutManager.HORIZONTAL, false);

@@ -87,10 +87,10 @@ public class AllProductsActivity extends AppCompatActivity
                 for (DataSnapshot dataSnapshot : snapshot.getChildren())
                 {
                     Products products = dataSnapshot.getValue(Products.class);
-                    if (products.getCategoryId().equals(id))
-                    {
+                    //if (products.getCategoryId().equals(title))
+                    //{
                         productsList.add(products);
-                    }
+                    //}
                 }
                 productsAdapter.notifyDataSetChanged();
                 if (productsAdapter.getItemCount()==0){

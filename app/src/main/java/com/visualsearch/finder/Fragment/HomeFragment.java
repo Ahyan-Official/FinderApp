@@ -262,10 +262,10 @@ public class HomeFragment extends Fragment
                {
                    Products products = snapshot.getValue(Products.class);
                    productsList.add(products);
+                   discountList.add(products);
 
                    if (products.getDiscounted().equals("true"))
                    {
-                       discountList.add(products);
                    }
                }
                productsAdapter.notifyDataSetChanged();

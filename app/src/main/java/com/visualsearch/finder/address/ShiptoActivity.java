@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.visualsearch.finder.Adapter.AddressAdapter;
 import com.visualsearch.finder.Constants;
 import com.visualsearch.finder.MainActivity;
@@ -284,6 +285,12 @@ public class ShiptoActivity extends AppCompatActivity implements PaymentResultLi
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
+
+
+
+                            sendnoti(saveCurrentDate,payment_method,code);
+
+
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .orderByChild("mode")
                                     .equalTo("admin")
@@ -474,14 +481,35 @@ public class ShiptoActivity extends AppCompatActivity implements PaymentResultLi
     }
 
 
+    public void sendnoti(String date,String text,String title){
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Notifications").push();
+
+        databaseReference.child("title").setValue(title);
+        databaseReference.child("image").setValue("image");
+        databaseReference.child("date").setValue(date);
+        databaseReference.child("text").setValue(text);
+        databaseReference.child("type").setValue(1).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(getApplicationContext(),"notification Delivered",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
+
     private void sendNotification(final String adminId) {
         DatabaseReference tokens = FirebaseDatabase.getInstance().getReference("Tokens");
-        tokens.orderByKey().equalTo(adminId)
-                .addValueEventListener(new ValueEventListener() {
+        tokens.orderByKey().equalTo(adminId).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
                             Token token = dataSnapshot.getValue(Token.class);
+
                             Data data = new Data(user.getUid(), R.drawable.singleiconblue, "You got a new Order# " + code, "New Order", adminId);
 
                             Sender sender = new Sender(data, token.getToken());

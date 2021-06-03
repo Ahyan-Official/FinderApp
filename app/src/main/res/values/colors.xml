@@ -14,4 +14,11 @@
     <color name="colorAccent">#FF4081</color>
     <color name="bg_bubble_self">#62caa6</color>
     <color name="bg_bubble_watbot">#ecf0f1</color>
+
+
+    <color name="themeRed">#EA2D2D</color>
+    <color name="themeBlue">#2196F3</color>
+    <color name="themeIndigo">#4B0082</color>
+    <color name="themeGreen">#8BC34A</color>
+
 </resources>

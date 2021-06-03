@@ -31,6 +31,21 @@
         app:layout_constraintStart_toEndOf="@+id/back_btn"
         app:layout_constraintTop_toTopOf="@+id/back_btn" />
 
+    <ImageView
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:src="@drawable/ic_settings"
+        android:text="@string/notifications_screen_title"
+        android:textColor="@color/dark"
+        android:textSize="18sp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title"
+         />
+
     <View
         android:id="@+id/divider11"
         android:layout_width="match_parent"
@@ -48,5 +63,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider11" />
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -116,6 +116,8 @@ public class ProductListFragmentTF extends Fragment {
 
     private void loadProductImage(final String topResultArg) {
 
+
+        Log.e("topres", "loadProductImage: "+topResultArg );
         retrofitInterface = APIClient.getClient().create(RetrofitInterface.class);
 
         Call<ProductsTF> call = retrofitInterface.getProductList();
@@ -193,6 +195,7 @@ public class ProductListFragmentTF extends Fragment {
 
     public void setTopResult(String result) {
         topResult = result;
+        topResult = "suit ";
         loadProductImage(topResult);
     }
 

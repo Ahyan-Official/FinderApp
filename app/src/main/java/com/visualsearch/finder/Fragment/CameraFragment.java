@@ -21,6 +21,7 @@ import com.wonderkiln.camerakit.CameraKitEventListener;
 import com.wonderkiln.camerakit.CameraKitImage;
 import com.wonderkiln.camerakit.CameraKitVideo;
 import com.wonderkiln.camerakit.CameraView;
+import com.yalantis.ucrop.UCrop;
 
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -81,6 +82,7 @@ public class CameraFragment extends Fragment {
             @Override
             public void onImage(CameraKitImage cameraKitImage) {
 
+//
                 Bitmap bitmap = cameraKitImage.getBitmap();
 
                 bitmap = Bitmap.createScaledBitmap(bitmap, INPUT_SIZE, INPUT_SIZE, false);

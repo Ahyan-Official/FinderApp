@@ -6,13 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Fragment.ProfileFragment">
-
+    tools:context=".ThemeActivity">
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Account"
+            android:text="Themes"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_bold"
@@ -65,7 +64,7 @@
                 android:id="@+id/profile_img"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/user"
+                android:src="@drawable/ic_baseline_ad_units_24"
                 android:tint="@color/blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Profile"
+                android:text="Red"
                 android:textColor="@color/dark"
                 android:textSize="15sp"
                 android:layout_marginStart="16dp"
@@ -99,7 +98,7 @@
                 android:id="@+id/order_img"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/bag"
+                android:src="@drawable/ic_baseline_ad_units_24"
                 android:tint="@color/blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Orders"
+                android:text="Yellow"
                 android:textColor="@color/dark"
                 android:textSize="15sp"
                 android:layout_marginStart="16dp"
@@ -133,7 +132,7 @@
                 android:id="@+id/address_img"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/location"
+                android:src="@drawable/ic_baseline_ad_units_24"
                 android:tint="@color/blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +143,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Address"
+                android:text="Indigo"
                 android:textColor="@color/dark"
                 android:textSize="15sp"
                 android:layout_marginStart="16dp"
@@ -166,7 +165,7 @@
                 android:id="@+id/chat_im"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_chat"
+                android:src="@drawable/ic_baseline_ad_units_24"
                 android:tint="@color/blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -177,7 +176,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Live assistance Bot"
+                android:text="Green and Ligh"
                 android:textColor="@color/dark"
                 android:textSize="15sp"
                 android:layout_marginStart="16dp"
@@ -210,7 +209,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Themes"
+                android:text="Blue"
                 android:textColor="@color/dark"
                 android:textSize="15sp"
                 android:layout_marginStart="16dp"
@@ -220,41 +219,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-
-
-
-    <!--<androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/payment_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_layout">
-
-        <ImageView
-            android:id="@+id/payment_img"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/creditcard"
-            android:tint="@color/blue"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/payment_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Card"
-            android:textColor="@color/dark"
-            android:textSize="15sp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/payment_img"
-            app:layout_constraintStart_toEndOf="@+id/payment_img"
-            app:layout_constraintTop_toTopOf="@+id/payment_img" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

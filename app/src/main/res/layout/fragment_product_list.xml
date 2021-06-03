@@ -52,6 +52,7 @@
                android:text="You can also view"
                android:textColor="@color/dark"
                android:textSize="20sp"
+               android:visibility="gone"
                android:paddingStart="12dp"
                android:paddingEnd="12dp" />
 
@@ -66,6 +67,8 @@
                android:layout_marginTop="32dp"
                android:orientation="horizontal"
                app:reverseLayout="true"
+               android:visibility="gone"
+
                app:layoutManager="LinearLayoutManager"
                tools:listitem="@layout/second_product_item_list" />
 
