@@ -36,6 +36,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
+import com.visualsearch.finder.vs.MainFirstActivity;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE).edit();
                 editor.putString("showresult", "no");
                 editor.commit();
-                Intent intent = new Intent(MainActivity.this, MainTensorFlowActivity.class);
+                Intent intent = new Intent(MainActivity.this, MainFirstActivity.class);
                 startActivity(intent);
 
 
